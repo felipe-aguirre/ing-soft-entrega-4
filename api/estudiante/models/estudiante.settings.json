@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "estudiantes",
+  "info": {
+    "name": "Estudiante",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Carrera": {
+      "type": "string"
+    },
+    "Campus": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "via": "estudiante",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

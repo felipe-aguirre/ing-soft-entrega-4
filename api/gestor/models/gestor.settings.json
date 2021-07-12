@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gestors",
+  "info": {
+    "name": "Gestor"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Mail": {
+      "type": "string"
+    }
+  }
+}

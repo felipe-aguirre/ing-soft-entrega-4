@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "externos",
+  "info": {
+    "name": "Externo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Institucion": {
+      "type": "string"
+    }
+  }
+}

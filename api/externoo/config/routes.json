@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/externoos",
+      "handler": "externoo.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/externoos/count",
+      "handler": "externoo.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/externoos/:id",
+      "handler": "externoo.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/externoos",
+      "handler": "externoo.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/externoos/:id",
+      "handler": "externoo.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/externoos/:id",
+      "handler": "externoo.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

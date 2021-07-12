@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ayudantes",
+      "handler": "ayudante.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ayudantes/count",
+      "handler": "ayudante.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ayudantes/:id",
+      "handler": "ayudante.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ayudantes",
+      "handler": "ayudante.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ayudantes/:id",
+      "handler": "ayudante.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ayudantes/:id",
+      "handler": "ayudante.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
