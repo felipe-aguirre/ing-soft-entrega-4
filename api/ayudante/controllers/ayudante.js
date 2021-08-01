@@ -11,42 +11,38 @@ module.exports = {
     let entradaRut = ctx.req._parsedUrl.query.match(reSingle)[2]
     console.log(entradaRut)
 
-    let result = [{
-      'rut': '19746913', 
-      'nombre': 'Joaquin Caqueo',
-      'contacto': 'joaquin.caqueo@sansano.usm.cl',
-      'rango': 'B',
-      'rut_gestor': '20978123'
-    }]
-  return result
+
+    let result = await strapi.query('Ayudante').find({rut: entradaRut})
+    console.log(result)
+    let result_t = {
+      "nombre":result.nombre,
+      "rango":result.rango
+    }
+    return result
   },
 
   async range(ctx){
     let entradaRange = ctx.req._parsedUrl.query.match(reSingle)[2]
-    console.log(entradaRange)
 
-    let result = [{
-      'rut': '19746913', 
-      'nombre': 'Joaquin Caqueo',
-      'contacto': 'joaquin.caqueo@sansano.usm.cl',
-      'rango': 'B',
-      'rut_gestor': '20978123'
-    }]
-  return result
+    let result = await strapi.query('Ayudante').find({rango: entradaRange})
+    console.log(result)
+    let result_t = {
+      "nombre":result.nombre,
+      "rango":result.rango
+    }
+    return result
   },
   async manager(ctx){
     let entradaManager = ctx.req._parsedUrl.query.match(reSingle)[2]
     console.log(entradaManager)
 
-    let result = [{
-    'rut': '19746913', 
-    'nombre': 'Joaquin Caqueo',
-    'contacto': 'joaquin.caqueo@sansano.usm.cl',
-    'rango': 'B',
-    'rut_gestor': '20978123'
-  }]
-  
-  return result
+    let result = await strapi.query('Ayudante').find({rut_gestor: entradaManager})
+    console.log(result)
+    let result_t = {
+      "nombre":result.nombre,
+      "rango":result.rango
+    }
+    return result
   },
   async managerRange(ctx){
     let entradaManager = ctx.req._parsedUrl.query.match(reDoble)[2]
@@ -54,14 +50,20 @@ module.exports = {
 
     console.log(entradaManager, entradaRange)
 
-    let result = [{
-      'rut': '19746913', 
-      'nombre': 'Joaquin Caqueo',
-      'contacto': 'joaquin.caqueo@sansano.usm.cl',
-      'rango': 'B',
-      'rut_gestor': '20978123'
-    }]
-  return result
+    let usersManager = await strapi.query('Ayudante').find({rut_gestor: entradaManager})
+    console.log(usersManager)
+
+    let result = []
+    for(let i = 0; i < usersManager.length; i++){
+      if(usersManager[i]['rango'] == entradaRange){
+        result.push(usersManager[i])
+      }
+      else{
+        continue
+      }
+    }
+
+    return result
   }
 
 };
