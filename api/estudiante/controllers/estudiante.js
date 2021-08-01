@@ -42,7 +42,7 @@ module.exports = {
     let entradaCareer = ctx.req._parsedUrl.query.match(reSingle)[2]
     console.log(entradaCareer)
 
-    let result = await strapi.query('Estudiante').find({career: entradaRut})
+    let result = await strapi.query('Estudiante').find({carrera: entradaCareer})
     console.log(result)
     let result_t = {
       "nombre":result.nombre,
