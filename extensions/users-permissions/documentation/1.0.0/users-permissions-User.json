@@ -1251,34 +1251,6 @@
               }
             }
           },
-          "estudiante": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "Carrera": {
-                "type": "string"
-              },
-              "Campus": {
-                "type": "string"
-              },
-              "users_permissions_user": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "nombre": {
             "type": "string"
           }
@@ -1321,9 +1293,6 @@
             "default": false
           },
           "role": {
-            "type": "string"
-          },
-          "estudiante": {
             "type": "string"
           },
           "nombre": {

@@ -59,10 +59,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "estudiante": {
-      "via": "users_permissions_user",
-      "model": "estudiante"
-    },
     "nombre": {
       "type": "string"
     }

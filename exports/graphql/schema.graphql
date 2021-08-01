@@ -45,7 +45,11 @@ type Ayudante {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Rango: String
+  rut: String
+  nombre: String
+  contacto: String
+  rango: String
+  rut_gestor: String
   published_at: DateTime
 }
 
@@ -64,7 +68,11 @@ type AyudanteGroupBy {
   id: [AyudanteConnectionId]
   created_at: [AyudanteConnectionCreated_at]
   updated_at: [AyudanteConnectionUpdated_at]
-  Rango: [AyudanteConnectionRango]
+  rut: [AyudanteConnectionRut]
+  nombre: [AyudanteConnectionNombre]
+  contacto: [AyudanteConnectionContacto]
+  rango: [AyudanteConnectionRango]
+  rut_gestor: [AyudanteConnectionRut_gestor]
   published_at: [AyudanteConnectionPublished_at]
 }
 
@@ -83,7 +91,27 @@ type AyudanteConnectionUpdated_at {
   connection: AyudanteConnection
 }
 
+type AyudanteConnectionRut {
+  key: String
+  connection: AyudanteConnection
+}
+
+type AyudanteConnectionNombre {
+  key: String
+  connection: AyudanteConnection
+}
+
+type AyudanteConnectionContacto {
+  key: String
+  connection: AyudanteConnection
+}
+
 type AyudanteConnectionRango {
+  key: String
+  connection: AyudanteConnection
+}
+
+type AyudanteConnectionRut_gestor {
   key: String
   connection: AyudanteConnection
 }
@@ -94,14 +122,22 @@ type AyudanteConnectionPublished_at {
 }
 
 input AyudanteInput {
-  Rango: String
+  rut: String
+  nombre: String
+  contacto: String
+  rango: String
+  rut_gestor: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editAyudanteInput {
-  Rango: String
+  rut: String
+  nombre: String
+  contacto: String
+  rango: String
+  rut_gestor: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -136,9 +172,11 @@ type Estudiante {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Carrera: String
-  Campus: String
-  users_permissions_user: UsersPermissionsUser
+  carrera: String
+  campus: String
+  rut: String
+  nombre: String
+  contacto: String
   published_at: DateTime
 }
 
@@ -157,9 +195,11 @@ type EstudianteGroupBy {
   id: [EstudianteConnectionId]
   created_at: [EstudianteConnectionCreated_at]
   updated_at: [EstudianteConnectionUpdated_at]
-  Carrera: [EstudianteConnectionCarrera]
-  Campus: [EstudianteConnectionCampus]
-  users_permissions_user: [EstudianteConnectionUsers_permissions_user]
+  carrera: [EstudianteConnectionCarrera]
+  campus: [EstudianteConnectionCampus]
+  rut: [EstudianteConnectionRut]
+  nombre: [EstudianteConnectionNombre]
+  contacto: [EstudianteConnectionContacto]
   published_at: [EstudianteConnectionPublished_at]
 }
 
@@ -188,8 +228,18 @@ type EstudianteConnectionCampus {
   connection: EstudianteConnection
 }
 
-type EstudianteConnectionUsers_permissions_user {
-  key: ID
+type EstudianteConnectionRut {
+  key: String
+  connection: EstudianteConnection
+}
+
+type EstudianteConnectionNombre {
+  key: String
+  connection: EstudianteConnection
+}
+
+type EstudianteConnectionContacto {
+  key: String
   connection: EstudianteConnection
 }
 
@@ -199,18 +249,22 @@ type EstudianteConnectionPublished_at {
 }
 
 input EstudianteInput {
-  Carrera: String
-  Campus: String
-  users_permissions_user: ID
+  carrera: String
+  campus: String
+  rut: String
+  nombre: String
+  contacto: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editEstudianteInput {
-  Carrera: String
-  Campus: String
-  users_permissions_user: ID
+  carrera: String
+  campus: String
+  rut: String
+  nombre: String
+  contacto: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -779,7 +833,6 @@ type UsersPermissionsUser {
   confirmed: Boolean
   blocked: Boolean
   role: UsersPermissionsRole
-  estudiante: Estudiante
   nombre: String
 }
 
@@ -804,7 +857,6 @@ type UsersPermissionsUserGroupBy {
   confirmed: [UsersPermissionsUserConnectionConfirmed]
   blocked: [UsersPermissionsUserConnectionBlocked]
   role: [UsersPermissionsUserConnectionRole]
-  estudiante: [UsersPermissionsUserConnectionEstudiante]
   nombre: [UsersPermissionsUserConnectionNombre]
 }
 
@@ -853,11 +905,6 @@ type UsersPermissionsUserConnectionRole {
   connection: UsersPermissionsUserConnection
 }
 
-type UsersPermissionsUserConnectionEstudiante {
-  key: ID
-  connection: UsersPermissionsUserConnection
-}
-
 type UsersPermissionsUserConnectionNombre {
   key: String
   connection: UsersPermissionsUserConnection
@@ -873,7 +920,6 @@ input UserInput {
   confirmed: Boolean
   blocked: Boolean
   role: ID
-  estudiante: ID
   nombre: String
   created_by: ID
   updated_by: ID
@@ -889,7 +935,6 @@ input editUserInput {
   confirmed: Boolean
   blocked: Boolean
   role: ID
-  estudiante: ID
   nombre: String
   created_by: ID
   updated_by: ID
@@ -920,7 +965,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Ayudante | AyudanteConnection | AyudanteAggregator | AyudanteGroupBy | AyudanteConnectionId | AyudanteConnectionCreated_at | AyudanteConnectionUpdated_at | AyudanteConnectionRango | AyudanteConnectionPublished_at | createAyudantePayload | updateAyudantePayload | deleteAyudantePayload | Estudiante | EstudianteConnection | EstudianteAggregator | EstudianteGroupBy | EstudianteConnectionId | EstudianteConnectionCreated_at | EstudianteConnectionUpdated_at | EstudianteConnectionCarrera | EstudianteConnectionCampus | EstudianteConnectionUsers_permissions_user | EstudianteConnectionPublished_at | createEstudiantePayload | updateEstudiantePayload | deleteEstudiantePayload | Externoo | ExternooConnection | ExternooAggregator | ExternooGroupBy | ExternooConnectionId | ExternooConnectionCreated_at | ExternooConnectionUpdated_at | ExternooConnectionInstitucion | ExternooConnectionPublished_at | createExternooPayload | updateExternooPayload | deleteExternooPayload | Gestor | GestorConnection | GestorAggregator | GestorGroupBy | GestorConnectionId | GestorConnectionCreated_at | GestorConnectionUpdated_at | GestorConnectionNombre | GestorConnectionMail | GestorConnectionPublished_at | createGestorPayload | updateGestorPayload | deleteGestorPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionEstudiante | UsersPermissionsUserConnectionNombre | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Ayudante | AyudanteConnection | AyudanteAggregator | AyudanteGroupBy | AyudanteConnectionId | AyudanteConnectionCreated_at | AyudanteConnectionUpdated_at | AyudanteConnectionRut | AyudanteConnectionNombre | AyudanteConnectionContacto | AyudanteConnectionRango | AyudanteConnectionRut_gestor | AyudanteConnectionPublished_at | createAyudantePayload | updateAyudantePayload | deleteAyudantePayload | Estudiante | EstudianteConnection | EstudianteAggregator | EstudianteGroupBy | EstudianteConnectionId | EstudianteConnectionCreated_at | EstudianteConnectionUpdated_at | EstudianteConnectionCarrera | EstudianteConnectionCampus | EstudianteConnectionRut | EstudianteConnectionNombre | EstudianteConnectionContacto | EstudianteConnectionPublished_at | createEstudiantePayload | updateEstudiantePayload | deleteEstudiantePayload | Externoo | ExternooConnection | ExternooAggregator | ExternooGroupBy | ExternooConnectionId | ExternooConnectionCreated_at | ExternooConnectionUpdated_at | ExternooConnectionInstitucion | ExternooConnectionPublished_at | createExternooPayload | updateExternooPayload | deleteExternooPayload | Gestor | GestorConnection | GestorAggregator | GestorGroupBy | GestorConnectionId | GestorConnectionCreated_at | GestorConnectionUpdated_at | GestorConnectionNombre | GestorConnectionMail | GestorConnectionPublished_at | createGestorPayload | updateGestorPayload | deleteGestorPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionNombre | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!

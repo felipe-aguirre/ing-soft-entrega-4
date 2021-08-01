@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "ayudantes",
   "info": {
-    "name": "Ayudante"
+    "name": "Ayudante",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,7 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Rango": {
+    "rut": {
+      "type": "uid"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "contacto": {
+      "type": "string"
+    },
+    "rango": {
+      "type": "string"
+    },
+    "rut_gestor": {
       "type": "string"
     }
   }

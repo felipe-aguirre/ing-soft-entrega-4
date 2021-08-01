@@ -2,7 +2,39 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/ayudantes",
+      "path": "/assistant/rut",
+      "handler": "ayudante.rut",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/assistant/range",
+      "handler": "ayudante.range",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/assistant/manager",
+      "handler": "ayudante.manager",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/assistant/manager-range",
+      "handler": "ayudante.managerRange",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/assistant/all",
       "handler": "ayudante.find",
       "config": {
         "policies": []

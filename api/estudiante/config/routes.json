@@ -2,7 +2,39 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/estudiantes",
+      "path": "/student/rut",
+      "handler": "estudiante.rut",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/campus",
+      "handler": "estudiante.campus",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/career",
+      "handler": "estudiante.career",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/campus-career",
+      "handler": "estudiante.campusCareer",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/all",
       "handler": "estudiante.find",
       "config": {
         "policies": []
@@ -18,7 +50,7 @@
     },
     {
       "method": "GET",
-      "path": "/estudiantes/:id",
+      "path": "/student/:id",
       "handler": "estudiante.findOne",
       "config": {
         "policies": []

@@ -12,16 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Carrera": {
+    "carrera": {
       "type": "string"
     },
-    "Campus": {
+    "campus": {
       "type": "string"
     },
-    "users_permissions_user": {
-      "via": "estudiante",
-      "plugin": "users-permissions",
-      "model": "user"
+    "rut": {
+      "type": "uid"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "contacto": {
+      "type": "string"
     }
   }
 }

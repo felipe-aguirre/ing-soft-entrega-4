@@ -561,9 +561,6 @@
                 "role": {
                   "type": "string"
                 },
-                "estudiante": {
-                  "type": "string"
-                },
                 "nombre": {
                   "type": "string"
                 },
