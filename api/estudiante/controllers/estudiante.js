@@ -90,7 +90,7 @@ module.exports = {
     //Register
     const createUser = await axios.post('http://ec2-3-142-133-232.us-east-2.compute.amazonaws.com/create/register', dataUser)
     console.log(createUser)
-    return 0
+    return createUser.data
   },
 
   async registrarProyecto(ctx){
@@ -186,7 +186,7 @@ module.exports = {
     //Resevar una maquina usando una sesion asociada a un proyecto y un estudiante
     let reserva = {
       "id_sesion": session.data.id,
-      "timestamp": session.data.updatedAt,
+      "timestamp": "2021-08-17T02:33:58.453Z",
       "id_maquina": maquina_id
     }
 
