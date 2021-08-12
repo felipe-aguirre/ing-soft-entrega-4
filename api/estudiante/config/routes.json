@@ -10,6 +10,30 @@
     },
     {
       "method": "GET",
+      "path": "/student/registrar-proyecto",
+      "handler": "estudiante.registrarProyecto",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/buscar-proyectos",
+      "handler": "estudiante.buscarProyectos",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/obtener-maquinas",
+      "handler": "estudiante.obtenerMaquinas",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/student/campus",
       "handler": "estudiante.campus",
       "config": {
@@ -20,6 +44,14 @@
       "method": "GET",
       "path": "/student/career",
       "handler": "estudiante.career",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/student/create-user",
+      "handler": "estudiante.createUser",
       "config": {
         "policies": []
       }
@@ -60,6 +92,14 @@
       "method": "POST",
       "path": "/estudiantes",
       "handler": "estudiante.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/student/reservar-maquina",
+      "handler": "estudiante.reservarMaquina",
       "config": {
         "policies": []
       }
